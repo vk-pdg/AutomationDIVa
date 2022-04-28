@@ -5,8 +5,7 @@ stage('Checkout Stage') {
 }
 
 stage('Build Stage') {
-    echo "---Build Stage---"
-        docker container ls
+    echo "---Build Stage---"        
 }
 
 stage('Push Stage') {
