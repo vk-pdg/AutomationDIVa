@@ -1,13 +1,14 @@
-echo "---build start---"
-
-stage('Checkout Stage') {
-    echo "---Checkout---"
-}
-
-stage('Build Stage') {
-    echo "---Build Stage---"        
-}
-
-stage('Push Stage') {
-    echo "---Push Stage---"
+node {
+  stage('========== Clone repository ==========') {
+    checkout scm
+  }
+  stage('========== Build image ==========') {
+    app = docker.build("jenkins-docker-pipeline/my-image")
+  }
+  stage('========== Push image ==========') {
+    docker.withRegistry('YOUR_REGISTRY', 'YOUR_CREDENTIAL') {
+      app.push("${env.BUILD_NUMBER}")
+      app.push("latest")
+    }
+  }
 }
