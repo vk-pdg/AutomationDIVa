@@ -1,8 +1,1 @@
-AAA
-BBB
-CCC
-DDD
-EEE
-FFF
-GGG
-HHH
+1.
